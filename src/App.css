@@ -35,6 +35,12 @@
   box-shadow: 0 0 8px #dddddd;
   color: #3d3c3c;
 }
+button {
+  padding: 5px;
+  color: #353535;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
 .form-info {
   display: flex;
   flex-direction: column;
@@ -59,14 +65,15 @@
 }
 .cv-container {
   width: 100%;
-  height: 100vh;
-  background: #e7e7e7;
+  min-height: 100vh;
+  background: #ececec;
   margin: 10px;
-  padding: 20px;
+  padding: 30px;
   -moz-box-shadow: 0 0 3px #ccc;
   -webkit-box-shadow: 0 0 3px #ccc;
   box-shadow: 0 0 8px #838383;
   font-family: monospace;
+  text-align: justify;
 }
 .cv-container header {
   height: 20%;
@@ -84,8 +91,53 @@
   height: 100%;
   flex: 1;
 }
+
+.cv-container h1 {
+  border-bottom: 2px solid #333;
+  font-size: 23px;
+}
+.cv-container .img {
+  width: 132px;
+  height: 170px;
+  margin-bottom: 5px;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #333;
+}
+.cv-container section {
+  margin: 12px 0px;
+  line-height: 20px;
+}
+.cv-container p {
+  font-size: 16px;
+  color: #222222;
+}
+.cv-container .last {
+  color: #464646;
+}
+.signature {
+  float: right;
+  color: #464646;
+}
+/* .cv-description {
+}
+.cv-skill {
+}
+.cv-personal {
+}
+.cv-experience {
+}
+.cv-academic {
+} */
 .footer {
   background: lightgray;
   width: 100%;
   text-align: center;
+  padding: 10px;
 }

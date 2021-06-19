@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Experience = (props) => {
-    const {handleChange, experience} = props;
+    const {handleChange, experience, handleBtn} = props;
     const {position, company, city, from, to} = experience;
     return (
         <div className="form-info">
@@ -13,7 +13,7 @@ const Experience = (props) => {
                 <input type="text" className="experience" placeholder="From" value={from} onChange={handleChange} name="from"></input>
                 <input type="text" className="experience" placeholder="To" value={to} onChange={handleChange} name="to"></input>
             </form>
-            <button>Add More</button>
+            <button onClick={handleBtn}>Add More</button>
         </div>
     );
 };

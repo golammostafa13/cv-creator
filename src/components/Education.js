@@ -14,7 +14,7 @@ const Education = (props) => {
                 <input type="text" className="educational" placeholder="From" value={from} onChange={handleChange} name="from"></input>
                 <input type="text" className="educational" placeholder="To" value={to} onChange={handleChange} name="to"></input>
             </form>
-            <button>Add More</button>
+            <button onClick={props.handleBtn}>Add More</button>
         </div>
     );
 };
