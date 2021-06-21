@@ -27,6 +27,7 @@ class Main extends Component {
                 from: '',
                 to: '',
             },
+            educationalTasks: [],
             experience: {
                 position: '',
                 company: '',
@@ -34,11 +35,11 @@ class Main extends Component {
                 from: '',
                 to: '',
             },
+            experienceTasks: [],
             skills: {
-                skill1: '',
-                skill2: '',
-                skill3: '',
+                skill: '',
             },
+            skillsTasks: [],
             personalProfile: {
                 father: '',
                 dateOfBirth: '',
@@ -46,19 +47,51 @@ class Main extends Component {
                 maritalStatus: '',
                 languages: '',
                 nationality: '',
-            }
+            },
+        }
+    }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const objectKey = e.target.className;
+        if(objectKey === 'skillsTasks'){
+            this.setState(prevState => ({
+                skillsTasks: prevState.skillsTasks.concat(prevState.skills),
+                skills: {
+                    skill: '',
+                },
+            }))
+        }else if(objectKey === 'educationalTasks'){
+            this.setState(prevState => ({
+                educationalTasks: prevState.educationalTasks.concat(prevState.educational),
+                educational: {
+                    universityName: '',
+                    city: '',
+                    degree: '',
+                    subject: '',
+                    from: '',
+                    to: '',
+                },
+            }))
+        }else if(objectKey === 'experienceTasks'){
+            this.setState(prevState => ({
+                experienceTasks: prevState.experienceTasks.concat(prevState.experience),
+                experience: {
+                    position: '',
+                    company: '',
+                    city: '',
+                    from: '',
+                    to: '',
+                },
+            }))
         }
     }
     handleChange = (e) =>{
+        e.preventDefault()
         const className = e.target.className;
         const key = e.target.name;
         const value = e.target.value;
-        // const key = property[e.target.name]
-        // console.log(property);
+        // console.log(value);
         if(className === 'personal'){
-            if(e.target.type==='file'){
-                console.log(e.target.files[0])
-            }
             this.setState((prevState) => ({
                 ...prevState,
                 personal: {...prevState.personal, [key]:value}
@@ -85,18 +118,41 @@ class Main extends Component {
             }))
         }
     }
-    handleBtn = () =>{
-        alert('Sorry! "Add More" Under Construction')
-    }
     render() {
-        const {personal, educational, experience, skills, personalProfile} = this.state;
+        const {personal, educationalTasks, experienceTasks, skillsTasks, educational, experience, skills, personalProfile} = this.state;
         return (
             <div className="main">
-                <PersonalInfo personal={personal} handleChange={this.handleChange}></PersonalInfo>
-                <Experience experience={experience} handleChange={this.handleChange} handleBtn={this.handleBtn}></Experience>
-                <Education educational={educational} handleChange={this.handleChange} handleBtn={this.handleBtn}></Education>
-                <Skills handleChange={this.handleChange} skills={skills} handleBtn={this.handleBtn}></Skills>
-                <PersonalProfile personalProfile={personalProfile} handleChange={this.handleChange} handleBtn={this.handleBtn}></PersonalProfile>
+                <PersonalInfo 
+                    personal={personal} 
+                    handleChange={this.handleChange}>
+                </PersonalInfo>
+
+                <Experience 
+                    experienceTasks={experienceTasks} 
+                    handleChange={this.handleChange} 
+                    handleSubmit={this.handleSubmit}
+                    experience={experience}>
+                </Experience>
+
+                <Education 
+                    educationalTasks={educationalTasks}
+                    handleChange={this.handleChange} 
+                    handleSubmit={this.handleSubmit} 
+                    education={educational}>
+                </Education>
+
+                <Skills 
+                    handleChange={this.handleChange} 
+                    skillsTasks={skillsTasks} 
+                    handleSubmit={this.handleSubmit}
+                    skills={skills}>
+                </Skills>
+
+                <PersonalProfile 
+                    personalProfile={personalProfile} 
+                    handleChange={this.handleChange}>
+                </PersonalProfile>
+
                 <Cv state={this.state}></Cv>
             </div>
         );

@@ -14,7 +14,6 @@ const PersonalProfile = (props) => {
                 <input type="text" className="personalProfile" placeholder="Languages Known" value={languages} onChange={handleChange} name="languages"></input>
                 <input type="text" className="personalProfile" placeholder="Nationality" value={nationality} onChange={handleChange} name="nationality"></input>
             </form>
-            <button onClick={props.handleBtn}>Add More</button>
         </div>
     );
 };

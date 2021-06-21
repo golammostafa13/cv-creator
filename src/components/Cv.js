@@ -1,15 +1,16 @@
 import React from 'react';
-
+import CVeducational from './Cveducational';
+import CVexperience from './Cvexperience';
+import photoDevice from './images/logo.svg';
+import CVskill from './Cvskills';
 const Cv = (props) => {
-    const {firstName, lastName, title, description, email, phoneNumber, address} = props.state.personal;
-    const {position, company, city, from, to} = props.state.experience;
-
-    const {universityName, subject, degree} = props.state.educational;
-
-    const {skill1, skill2, skill3} = props.state.skills;
+    let {firstName, lastName, photo: photoURL, title, description, email, phoneNumber, address} = props.state.personal;
 
     const {father, dateOfBirth, gender, maritalStatus, languages, nationality} = props.state.personalProfile;
-    
+
+    const {educationalTasks, educational} = props.state;
+    const {experienceTasks, experience} = props.state;
+    const {skillsTasks, skills} = props.state;
     return (
         <div className="cv-container">
             <header className="cv-header">
@@ -21,7 +22,7 @@ const Cv = (props) => {
                     <p>Email: <span className="last"> {email}</span></p>
                 </div>
                 <div className="img">
-                    <img src='https://cdn.iconscout.com/icon/free/png-256/avatar-367-456319.png' alt="avatar" />
+                    <img src={photoURL || photoDevice} alt="avatar" />
                 </div>
             </header>
             <section className="cv-description">
@@ -30,30 +31,42 @@ const Cv = (props) => {
             </section>
             <section className="cv-academic">
                 <h1>ACADEMIC QUALIFICATION</h1>
-                <div>
-                    <p>Institute: <span className="last"> {universityName}</span></p>
-                    <p>Department: <span className="last"> {subject}</span></p>
-                    <p>Degree: <span className="last"> {degree}</span></p>
-                    <p>Session: <span className="last"> {props.state.educational.from}-{props.state.educational.to}</span></p>
-                    <p>City: <span className="last"> {props.state.educational.city}</span></p>
-                </div>
+                <CVeducational 
+                    educational={educational}>
+                </CVeducational>
+                {
+                    educationalTasks.map(edu => 
+                        <CVeducational 
+                            key={Math.random()}
+                            educational={edu}>
+                        </CVeducational>)
+                }
             </section> 
             <section className='cv-experience'>
                 <h1>EXPERIENCE</h1>
-                <div>
-                    <p>Company: <span className="last"> {company}</span></p>
-                    <p>Position: <span className="last"> {position}</span></p>
-                    <p>City: <span className="last"> {city}</span></p>
-                    <p>From-To: <span className="last"> {from}-{to}</span></p>
-                </div>
+                <CVexperience
+                    experience={experience}>
+                </CVexperience>
+                {
+                    experienceTasks.map(ex =>
+                        <CVexperience
+                            key={Math.random()}
+                            experience={ex}>
+                        </CVexperience>)
+                }
             </section>
             <section className="cv-skill">
-                <h1>PERSONAL SKILL</h1>
-                <div>
-                    <li>{skill1}</li>
-                    <li>{skill2}</li>
-                    <li>{skill3}</li>
-                </div>
+                <h1>PERSONAL SKILLS</h1>
+                <CVskill
+                    skills={skills}>
+                </CVskill>
+                {
+                    skillsTasks.map(sk =>
+                        <CVskill
+                            key={Math.random()}
+                            skills={sk}>
+                        </CVskill>)
+                }
             </section>  
             <section className="cv-personal">
                 <h1>PERSONAL PROFILE</h1>
@@ -72,7 +85,11 @@ const Cv = (props) => {
                 <br></br>
                 <p>Date:</p>
                 <p>Place: <span className="signature">(Signature)</span></p>
-            </section>     
+            </section>  
+            {/* <figure>
+                <img src={photoDevice} alt=""></img>
+                <figureCaption>React</figureCaption>
+            </figure>    */}
         </div>
     );
 };

@@ -40,12 +40,14 @@ button {
   color: #353535;
   border: 1px solid #ccc;
   cursor: pointer;
+  width: 100%;
 }
 .form-info {
   display: flex;
   flex-direction: column;
   margin: 10px;
   padding: 10px;
+  width: 100%;
 }
 .form-info input,
 #file-label {
@@ -54,6 +56,9 @@ button {
   border: none;
   padding: 6px;
   margin: 3px;
+}
+.form-info h2 {
+  text-align: center;
 }
 #file-label {
   display: block;
@@ -97,6 +102,7 @@ button {
   font-size: 23px;
 }
 .cv-container .img {
+  margin-top: 0px;
   width: 132px;
   height: 170px;
   margin-bottom: 5px;
@@ -124,6 +130,9 @@ img {
 .signature {
   float: right;
   color: #464646;
+}
+.cv-inner-info {
+  margin: 8px 0px;
 }
 /* .cv-description {
 }
