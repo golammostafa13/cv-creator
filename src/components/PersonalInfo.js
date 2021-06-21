@@ -2,7 +2,7 @@ import React from 'react';
 
 const PersonalInfo = (props) => {
     const {handleChange, personal} = props;
-    const {firstName, lastName, email, title, address, phone, photo, message} = personal;
+    const {firstName, lastName, email, title, address, phone, message} = personal;
     return (
         <div className="form-info">
             <h2>Personal Information</h2>
@@ -14,7 +14,7 @@ const PersonalInfo = (props) => {
                 <input className="personal" type="text" placeholder="Title" value={title} onChange={handleChange} name="title"></input>
 
                 <label id="file-label" htmlFor="file">Select Image</label>
-                <input id="file" style={{display: 'none',visibility: 'hidden'}} className="personal" type="file" name="photo" onChange={handleChange}value={photo}></input>
+                <input id="file" style={{display: 'none',visibility: 'hidden'}} className="personal" type="file" name="photo" onChange={handleChange}value=''></input>
                 
                 <input className="personal" type="text" placeholder="Addess" value={address} onChange={handleChange} name="address"></input>
 

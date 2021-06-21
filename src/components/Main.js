@@ -90,9 +90,26 @@ class Main extends Component {
         const className = e.target.className;
         const key = e.target.name;
         const value = e.target.value;
-        // console.log(value);
+        const file = e.target.files[0];
+
+        // console.log(file);
+        // console.log(file.name);
+        // console.log(key);
         if(className === 'personal'){
-            this.setState((prevState) => ({
+            if(key==='photo'){
+                const reader = new FileReader();
+                reader.onload = () => {
+                    this.setState((prevState) => ({
+                        ...prevState,
+                        personal: {
+                        ...prevState.personalInfo,
+                        photo: reader.result,
+                        },
+                    }));
+                };
+                reader.readAsDataURL(file);
+            }
+            else this.setState((prevState) => ({
                 ...prevState,
                 personal: {...prevState.personal, [key]:value}
             }))

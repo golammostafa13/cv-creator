@@ -82,6 +82,7 @@ button {
 }
 .cv-container header {
   height: 20%;
+  text-align: center;
 }
 .cv-container .info {
   height: 80%;
