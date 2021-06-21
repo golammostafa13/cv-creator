@@ -41,6 +41,7 @@ button {
   border: 1px solid #ccc;
   cursor: pointer;
   width: 100%;
+  text-align: center;
 }
 .form-info {
   display: flex;
@@ -65,7 +66,7 @@ button {
   width: 100%;
   background: white;
   margin-top: 2px;
-  color: gray;
+  color: #464545;
   font-size: 14px;
 }
 .cv-container {
@@ -116,6 +117,7 @@ img {
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid #333;
+  align-items: center;
 }
 .cv-container section {
   margin: 12px 0px;
@@ -131,6 +133,7 @@ img {
 .signature {
   float: right;
   color: #464646;
+  margin-top: 5px;
 }
 .cv-inner-info {
   margin: 8px 0px;
@@ -150,4 +153,29 @@ img {
   width: 100%;
   text-align: center;
   padding: 10px;
+}
+
+@media only screen and (max-width: 480px) {
+  * {
+    display: flex;
+    flex-direction: column;
+  }
+  h1,
+  .cv-container h1 {
+    font-size: 13px;
+  }
+  h2 {
+    font-size: 12px;
+  }
+  p,
+  .cv-container p {
+    font-size: 8px;
+  }
+  .img {
+    width: 58px;
+    height: 65px;
+  }
+  button {
+    align-items: center;
+  }
 }

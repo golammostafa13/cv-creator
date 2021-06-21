@@ -90,13 +90,13 @@ class Main extends Component {
         const className = e.target.className;
         const key = e.target.name;
         const value = e.target.value;
-        const file = e.target.files[0];
 
         // console.log(file);
         // console.log(file.name);
         // console.log(key);
         if(className === 'personal'){
             if(key==='photo'){
+                const file = e.target.files[0];
                 const reader = new FileReader();
                 reader.onload = () => {
                     this.setState((prevState) => ({
