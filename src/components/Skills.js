@@ -6,20 +6,23 @@ const Skills = (props) => {
     return (
         <>
             <h2>Skills</h2>
-            <SingleSkills
-                skills={skills}
-                handleSubmit={handleSubmit}
-                handleChange={handleChange}>
-            </SingleSkills>
+            
             {
                 skillsTasks.map(skill => 
                     <SingleSkills
                         key={Math.random()}
                         skills={skill}
                         handleSubmit={handleSubmit}
-                        handleChange={handleChange}>
+                        handleChange={handleChange}
+                        isBtnShow={false}>
                     </SingleSkills>)
             }
+            <SingleSkills
+                skills={skills}
+                handleSubmit={handleSubmit}
+                handleChange={handleChange}
+                isBtnShow={true}>
+            </SingleSkills>
         </>        
     )
 };

@@ -31,51 +31,42 @@ const Cv = (props) => {
             </section>
             <section className="cv-academic">
                 <h1>ACADEMIC QUALIFICATION</h1>
+                <CVeducational 
+                    educational={educational}>
+                </CVeducational>
                 {
                     educationalTasks.map(edu => 
                         <CVeducational 
-                            addMoreBtn={false}
                             key={Math.random()}
                             educational={edu}>
                         </CVeducational>)
                 }
-
-                <CVeducational 
-                    educational={educational}
-                    addMoreBtn={true}>
-                </CVeducational>
             </section> 
             <section className='cv-experience'>
                 <h1>EXPERIENCE</h1>
-                
+                <CVexperience
+                    experience={experience}>
+                </CVexperience>
                 {
                     experienceTasks.map(ex =>
                         <CVexperience
                             key={Math.random()}
-                            addMoreBtn={false}
                             experience={ex}>
                         </CVexperience>)
                 }
-                <CVexperience
-                    experience={experience}
-                    addMoreBtn={true}>
-                </CVexperience>
             </section>
             <section className="cv-skill">
                 <h1>PERSONAL SKILLS</h1>
-                
+                <CVskill
+                    skills={skills}>
+                </CVskill>
                 {
                     skillsTasks.map(sk =>
                         <CVskill
                             key={Math.random()}
-                            addMoreBtn={false}
                             skills={sk}>
                         </CVskill>)
                 }
-                <CVskill
-                    skills={skills}
-                    addMoreBtn={true}>
-                </CVskill>
             </section>  
             <section className="cv-personal">
                 <h1>PERSONAL PROFILE</h1>

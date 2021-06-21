@@ -5,20 +5,23 @@ const Experience = (props) => {
     return (
         <>
             <h2>Experience</h2>
-            <SingleExperience 
-                experience={experience}
-                handleSubmit={handleSubmit}
-                handleChange={handleChange}>
-            </SingleExperience>
+            
             {
                 experienceTasks.map(ex => 
                     <SingleExperience 
                         key={Math.random()}
                         experience={ex}
                         handleSubmit={handleSubmit}
-                        handleChange={handleChange}>
+                        handleChange={handleChange}
+                        isBtnShow={false}>
                     </SingleExperience>)
             }
+            <SingleExperience 
+                experience={experience}
+                handleSubmit={handleSubmit}
+                handleChange={handleChange}
+                isBtnShow={true}>
+            </SingleExperience>
         </>        
     )
 };

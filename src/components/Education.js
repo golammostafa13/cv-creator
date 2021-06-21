@@ -6,20 +6,23 @@ const Education = (props) => {
     return (
         <>
             <h2>Educational Information</h2>
-            <SingleEducation
-                educational={education}
-                handleSubmit={handleSubmit}
-                handleChange={handleChange}>
-            </SingleEducation>
+            
             {
                 educationalTasks.map(edu => 
                     <SingleEducation
                         key={Math.random()}
                         educational={edu}
                         handleSubmit={handleSubmit}
-                        handleChange={handleChange}>
+                        handleChange={handleChange}
+                        isBtnShow={false}>
                     </SingleEducation>)
             }
+            <SingleEducation
+                educational={education}
+                handleSubmit={handleSubmit}
+                handleChange={handleChange}
+                isBtnShow={true}>
+            </SingleEducation>
         </>        
     )
 };
