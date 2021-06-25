@@ -1,19 +1,28 @@
+import { makePDF } from 'multi-page-html2pdf';
 import React from 'react';
 import CVeducational from './Cveducational';
 import CVexperience from './Cvexperience';
 import CVskill from './Cvskills';
 import photoDevice from './images/logo.svg';
+
 const Cv = (props) => {
-    let {firstName, lastName, photo: photoURL, title, description, email, phoneNumber, address} = props.state.personal;
+    const {experienceTasks, experience, educationalTasks, educational, skillsTasks, skills, personal, personalProfile} = props;
 
-    const {father, dateOfBirth, gender, maritalStatus, languages, nationality} = props.state.personalProfile;
+    let {firstName, lastName, photo: photoURL, title, description, email, phoneNumber, address} = personal;
 
-    const {educationalTasks, educational} = props.state;
-    const {experienceTasks, experience} = props.state;
-    const {skillsTasks, skills} = props.state;
+    const {father, dateOfBirth, gender, maritalStatus, languages, nationality} = personalProfile;
+
+
+    // let element = document.querySelector('#main-cv');
+
+    const handleClick = () => {
+       makePDF('main');
+    //    console.log(pdf);
+    }
     return (
-        <div className="cv-container">
-            <header className="cv-header">
+        <>
+        <div id="main" className="cv-container">
+           <header className="cv-header">
                 <div>
                     <h1>{firstName} {lastName}</h1>
                     <p>{title}</p>
@@ -84,14 +93,11 @@ const Cv = (props) => {
                 <p>I solemnly declare that all the above information is correct to the best of my knowledge and belief.</p>
                 <br></br>
                 <p>Date:</p>
-                <p>Place: <span className="signature">(Signature)</span></p>
+                <p>Place: <strong className="signature">(Signature)</strong></p>
             </section>  
-            {/* <figure>
-                <img src={photoDevice} alt=""></img>
-                <figureCaption>React</figureCaption>
-            </figure>    */}
         </div>
+        <button onClick={handleClick}>Download(PDF)</button>
+        </>
     );
 };
-
 export default Cv;

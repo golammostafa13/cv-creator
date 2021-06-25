@@ -5,7 +5,7 @@ const Cvskills = (props) => {
     
     return (
         <div className="cv-inner-info">
-            <li style={{listStyleType: 'square'}}>{skill}</li>
+            <li style={{listStyleType: 'none'}}>{skill}</li>
         </div>
     );
 };
