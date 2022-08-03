@@ -1,13 +1,14 @@
 import React from 'react';
+import { lastStyle, pStyle } from '../styles/styles';
 
 const Cvexperience = (props) => {
     const {position, company, city, from, to} = props.experience;
     return (
         <div className="cv-inner-info">
-            <p>Company: <span className="last"> {company}</span></p>
-            <p>Position: <span className="last"> {position}</span></p>
-            <p>City: <span className="last"> {city}</span></p>
-            <p>From-To: <span className="last"> {from}-{to}</span></p>
+            <p style={pStyle}>Company: <span className="last" style={lastStyle}> {company}</span></p>
+            <p style={pStyle}>Position: <span className="last" style={lastStyle}> {position}</span></p>
+            <p style={pStyle}>City: <span className="last" style={lastStyle}> {city}</span></p>
+            <p style={pStyle}>From-To: <span className="last" style={lastStyle}> {from}-{to}</span></p>
         </div>
     );
 };
